@@ -109,7 +109,11 @@
     "chooseSub": "Choisissez les activités essentielles. Nous les utiliserons pour construire votre itinéraire et devis.",
     "continueToTransport": "Continuer vers le transport",
     "noActivities": "Aucune activité disponible",
-    "noActivitiesSub": "Les activités pour cette destination sont en cours de préparation. Revenez bientôt ou essayez une autre destination."
+    "noActivitiesSub": "Les activités pour cette destination sont en cours de préparation. Revenez bientôt ou essayez une autre destination.",
+    "filterAll": "Tout",
+    "filterDay": "Jour",
+    "filterNight": "Nuit",
+    "noResultsFilter": "Aucune activité ne correspond à ce filtre. Essayez un autre."
   },
   "transport": {
     "title": "Se déplacer",
