@@ -13,17 +13,42 @@ interface PreferencesProps {
   onBack: () => void;
 }
 
+const WELLNESS_GOALS = [
+  { label: 'Stress Relief', value: 'stress-relief', emoji: '\u{1F9D8}' },
+  { label: 'Fitness & Energy', value: 'fitness', emoji: '\u{1F4AA}' },
+  { label: 'Spiritual Growth', value: 'spiritual', emoji: '\u{1F549}\u{FE0F}' },
+  { label: 'Detox & Cleanse', value: 'detox', emoji: '\u{1F33F}' },
+  { label: 'Beauty & Rejuvenation', value: 'beauty', emoji: '\u{2728}' },
+  { label: 'Creative Renewal', value: 'creative', emoji: '\u{1F3A8}' },
+];
+
+const EXPERIENCE_LEVELS = [
+  { label: 'Beginner', value: 'beginner' },
+  { label: 'Intermediate', value: 'intermediate' },
+  { label: 'Advanced', value: 'advanced' },
+];
+
 export function Preferences({ onNext, onBack }: PreferencesProps) {
   const { t } = useTranslation();
-  const { selectedDestination, startDate, endDate, travelers, budget, currency, setDestination, setDates, setTravelers, setBudget, setCurrency } = useTripStore();
+  const { selectedDestination, startDate, endDate, travelers, budget, currency, setDestination, setDates, setTravelers, setBudget, setCurrency, vibePreferences, setVibePreferences, wellnessLevel, setWellnessLevel } = useTripStore();
   const { destinations, loading } = useDestinations();
+
+  const toggleGoal = (value: string) => {
+    if (vibePreferences.includes(value)) {
+      setVibePreferences(vibePreferences.filter((v) => v !== value));
+    } else {
+      setVibePreferences([...vibePreferences, value]);
+    }
+  };
+
   const validationMessages = useMemo(() => {
     const messages: string[] = [];
     if (!selectedDestination) messages.push(t('preferences.validationDestination'));
     if (!startDate || !endDate) messages.push(t('preferences.validationDates'));
     if (startDate && endDate && new Date(endDate) <= new Date(startDate)) messages.push(t('preferences.validationDatesOrder'));
+    if (vibePreferences.length === 0) messages.push(t('wellness.validationGoals'));
     return messages;
-  }, [endDate, selectedDestination, startDate]);
+  }, [endDate, selectedDestination, startDate, vibePreferences.length]);
 
   return (
     <div className="space-y-6 pb-28">
@@ -171,6 +196,52 @@ export function Preferences({ onNext, onBack }: PreferencesProps) {
         )}
       </section>
 
+      {/* Wellness Goals */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">{t('wellness.goalsTitle')}</h2>
+        <p className="mt-1 text-sm text-slate-500">{t('wellness.goalsSubtitle')}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {WELLNESS_GOALS.map((goal) => {
+            const selected = vibePreferences.includes(goal.value);
+            return (
+              <button
+                key={goal.value}
+                onClick={() => toggleGoal(goal.value)}
+                className={`rounded-full border-2 px-4 py-2 text-sm font-medium backdrop-blur-sm transition-all ${
+                  selected
+                    ? `${tc.selectedRing} bg-teal-50 text-teal-700`
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                }`}
+              >
+                <span className="mr-1.5">{goal.emoji}</span>
+                {goal.label}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Experience Level */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">{t('wellness.levelTitle')}</h2>
+        <p className="mt-1 text-sm text-slate-500">{t('wellness.levelSubtitle')}</p>
+        <div className="mt-4 flex gap-2">
+          {EXPERIENCE_LEVELS.map((level) => (
+            <button
+              key={level.value}
+              onClick={() => setWellnessLevel(level.value)}
+              className={`flex-1 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition-all ${
+                wellnessLevel === level.value
+                  ? `${tc.selectedRing} bg-teal-50 text-teal-700`
+                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+              }`}
+            >
+              {level.label}
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* Destination insights — only when selected */}
       {selectedDestination && (
         <section className="rounded-2xl bg-slate-900 p-5 text-white shadow-sm">
@@ -184,7 +255,7 @@ export function Preferences({ onNext, onBack }: PreferencesProps) {
         </section>
       )}
 
-      <FloatingContinueButton onContinue={onNext} onBack={onBack} isValid={validationMessages.length === 0} currentStep={1} totalSteps={6} validationMessages={validationMessages} nextText={t('preferences.continueToActivities')} />
+      <FloatingContinueButton onContinue={onNext} onBack={onBack} isValid={validationMessages.length === 0} currentStep={1} totalSteps={3} validationMessages={validationMessages} nextText={t('wellness.buildRetreat')} />
     </div>
   );
 }

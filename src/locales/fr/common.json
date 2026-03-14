@@ -10,6 +10,7 @@
     "accommodation": "Hébergement",
     "schedule": "Planning",
     "review": "Récapitulatif",
+    "program": "Programme",
     "profile": "Profil",
     "signOut": "Se déconnecter",
     "signIn": "Se connecter",
@@ -389,5 +390,24 @@
     "message": "La page que vous cherchez n'existe pas ou a été déplacée.",
     "goBack": "Retour",
     "goHome": "Retour à l'accueil"
+  },
+  "wellness": {
+    "goalsTitle": "Vos objectifs bien-être",
+    "goalsSubtitle": "Sélectionnez au moins un objectif pour votre retraite. Nous adapterons les séances à vos intentions.",
+    "levelTitle": "Niveau d'expérience",
+    "levelSubtitle": "Aidez-nous à calibrer l'intensité et la difficulté des séances suggérées.",
+    "validationGoals": "Sélectionnez au moins un objectif bien-être.",
+    "buildRetreat": "Créer mon programme de retraite",
+    "programTitle": "Votre programme quotidien",
+    "programSubtitle": "Un modèle quotidien de séances. Échangez n'importe quelle séance pour personnaliser votre expérience.",
+    "repeatsFor": "Ce modèle quotidien se répète pendant {{count}} jours. Planning final confirmé après réservation.",
+    "earlyMorning": "Tôt le matin",
+    "morning": "Séance du matin",
+    "afternoon": "Séance de l'après-midi",
+    "evening": "Détente du soir",
+    "swapSession": "Changer de séance",
+    "noAlternatives": "Aucune séance alternative disponible pour ce créneau.",
+    "continueToBook": "Continuer vers la réservation",
+    "notesPlaceholder": "Besoins alimentaires, blessures ou conditions de santé, expérience en yoga/méditation, allergies"
   }
 }

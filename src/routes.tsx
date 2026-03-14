@@ -6,10 +6,7 @@ import { AdminRoute } from './components/AdminRoute';
 
 // Eager-loaded: wizard step pages + MainLayout (critical path)
 import { Preferences } from './pages/Preferences';
-import { Activities } from './pages/Activities';
-import { Transport } from './pages/Transport';
-import { Accommodation } from './pages/Accommodation';
-import { Schedule } from './pages/Schedule';
+import { RetreatProgram } from './pages/RetreatProgram';
 import { ReviewBook } from './pages/ReviewBook';
 import { MainLayout } from './components/MainLayout';
 
@@ -81,66 +78,33 @@ export const routes = [
         element: (() => {
           const PreferencesStep = () => {
             const navigate = useNavigate();
-            return <Preferences onNext={() => navigate('/activities')} onBack={() => navigate('/home')} />;
+            return <Preferences onNext={() => navigate('/program')} onBack={() => navigate('/home')} />;
           };
           return <PreferencesStep />;
         })(),
-        label: 'Preferences'
+        label: 'Your Retreat'
       },
       {
-        path: 'activities',
+        path: 'program',
         element: (() => {
-          const ActivitiesStep = () => {
+          const ProgramStep = () => {
             const navigate = useNavigate();
-            return <Activities onNext={() => navigate('/transport')} onBack={() => navigate('/preferences')} />;
+            return <RetreatProgram onNext={() => navigate('/review')} onBack={() => navigate('/preferences')} />;
           };
-          return <ActivitiesStep />;
+          return <ProgramStep />;
         })(),
-        label: 'Activities'
-      },
-      {
-        path: 'transport',
-        element: (() => {
-          const TransportStep = () => {
-            const navigate = useNavigate();
-            return <Transport onNext={() => navigate('/accommodation')} onBack={() => navigate('/activities')} />;
-          };
-          return <TransportStep />;
-        })(),
-        label: 'Transport'
-      },
-      {
-        path: 'accommodation',
-        element: (() => {
-          const AccommodationStep = () => {
-            const navigate = useNavigate();
-            return <Accommodation onNext={() => navigate('/schedule')} onBack={() => navigate('/transport')} />;
-          };
-          return <AccommodationStep />;
-        })(),
-        label: 'Accommodation'
-      },
-      {
-        path: 'schedule',
-        element: (() => {
-          const ScheduleStep = () => {
-            const navigate = useNavigate();
-            return <Schedule onNext={() => navigate('/review')} onBack={() => navigate('/accommodation')} />;
-          };
-          return <ScheduleStep />;
-        })(),
-        label: 'Schedule'
+        label: 'Program'
       },
       {
         path: 'review',
         element: (() => {
           const ReviewStep = () => {
             const navigate = useNavigate();
-            return <ReviewBook onNext={() => navigate('/')} onBack={() => navigate('/schedule')} />;
+            return <ReviewBook onNext={() => navigate('/')} onBack={() => navigate('/program')} />;
           };
           return <ReviewStep />;
         })(),
-        label: 'Review & Quote'
+        label: 'Book'
       }
     ]
   }

@@ -10,6 +10,7 @@
     "accommodation": "Accommodation",
     "schedule": "Schedule",
     "review": "Review",
+    "program": "Program",
     "profile": "Profile",
     "signOut": "Sign out",
     "signIn": "Sign in",
@@ -389,5 +390,24 @@
     "message": "The page you're looking for doesn't exist or has been moved.",
     "goBack": "Go back",
     "goHome": "Back to home"
+  },
+  "wellness": {
+    "goalsTitle": "Your wellness goals",
+    "goalsSubtitle": "Select at least one goal for your retreat. We'll tailor sessions around your intentions.",
+    "levelTitle": "Experience level",
+    "levelSubtitle": "Help us calibrate intensity and difficulty of suggested sessions.",
+    "validationGoals": "Select at least one wellness goal.",
+    "buildRetreat": "Build my retreat program",
+    "programTitle": "Your daily retreat program",
+    "programSubtitle": "A curated daily template of sessions. Swap any session to customize your experience.",
+    "repeatsFor": "This daily template repeats for {{count}} days. Final schedule confirmed after booking.",
+    "earlyMorning": "Early Morning",
+    "morning": "Morning Session",
+    "afternoon": "Afternoon Session",
+    "evening": "Evening Wind-Down",
+    "swapSession": "Swap session",
+    "noAlternatives": "No alternative sessions available for this time block.",
+    "continueToBook": "Continue to book",
+    "notesPlaceholder": "Dietary needs, injuries or health conditions, experience with yoga/meditation, any allergies"
   }
 }

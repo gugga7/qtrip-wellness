@@ -14,6 +14,10 @@ interface TripState {
   selectedActivities: Activity[];
   selectedAccommodation: Accommodation | null;
   selectedTransport: Transport | null;
+  vibePreferences: string[];
+  wellnessLevel: string;
+  setVibePreferences: (vibes: string[]) => void;
+  setWellnessLevel: (level: string) => void;
   setDestination: (destination: Destination | null) => void;
   setDates: (start: string | null, end: string | null) => void;
   setTravelers: (count: number) => void;
@@ -40,6 +44,8 @@ const baseState = {
   selectedActivities: [] as Activity[],
   selectedAccommodation: null,
   selectedTransport: null,
+  vibePreferences: [] as string[],
+  wellnessLevel: 'beginner',
   startDate: null,
   endDate: null,
   travelers: 2,
@@ -63,6 +69,8 @@ export const useTripStore = create<TripState>()(
       setTravelers: (count) => set({ travelers: Math.max(1, count) }),
       setBudget: (amount, type) => set({ budget: Math.max(0, amount), budgetType: type }),
       setCurrency: (currency) => set({ currency }),
+      setVibePreferences: (vibes) => set({ vibePreferences: vibes }),
+      setWellnessLevel: (level) => set({ wellnessLevel: level }),
       addActivity: (activity) => set((state) => ({ selectedActivities: state.selectedActivities.some((item) => item.id === activity.id) ? state.selectedActivities : [...state.selectedActivities, { ...activity, participants: state.travelers }] })),
       removeActivity: (activityId) => set((state) => ({ selectedActivities: state.selectedActivities.filter((activity) => activity.id !== activityId) })),
       scheduleActivity: (activityId, day, slot) => set((state) => ({ selectedActivities: state.selectedActivities.map((activity) => activity.id === String(activityId) ? { ...activity, scheduled: { day, slot } } : activity) })),
