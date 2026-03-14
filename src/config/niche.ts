@@ -73,63 +73,63 @@ export interface NicheConfig {
   defaultGroupSize: number;
 }
 
-/* ── Bachelor / Bachelorette niche ── */
+/* ── Wellness Retreats niche ── */
 
-export const bachelorConfig: NicheConfig = {
-  id: 'bachelor',
+export const wellnessConfig: NicheConfig = {
+  id: 'wellness',
   name: {
-    en: 'Bachelor & Bachelorette',
-    fr: 'Enterrement de Vie de Garçon/Fille',
+    en: 'Wellness Retreats',
+    fr: 'Retraites Bien-Être',
   },
-  destinations: ['marrakech', 'marbella', 'faro'],
+  destinations: ['essaouira', 'marrakech', 'agadir'],
   features: {
     groupBooking: true,
-    votingSystem: true,
+    votingSystem: false,
     countdownTimer: true,
     expenseSplitting: true,
-    guestList: true,
+    guestList: false,
     profilePage: true,
     aiSchedule: true,
   },
   theme: {
-    primary: 'pink',
-    accent: 'rose',
-    heroGradient: 'from-pink-500 via-rose-500 to-fuchsia-500',
-    ctaGradient: 'from-pink-500 to-rose-500',
+    primary: 'teal',
+    accent: 'emerald',
+    heroGradient: 'from-teal-400 via-emerald-500 to-cyan-500',
+    ctaGradient: 'from-teal-400 to-emerald-500',
     appName: 'QTRIP',
     tagline: {
-      en: 'Plan the ultimate celebration',
-      fr: 'Organisez la fête parfaite',
+      en: 'Restore your balance',
+      fr: 'Retrouvez votre équilibre',
     },
     description: {
-      en: 'Plan unforgettable bachelor & bachelorette trips to Marrakech, Marbella, and the Algarve.',
-      fr: 'Organisez des enterrements de vie de garçon et de jeune fille inoubliables à Marrakech, Marbella et en Algarve.',
+      en: 'Plan transformative wellness retreats in Morocco. Yoga, hammam, surf therapy, and mindful experiences in Essaouira, Marrakech, and Agadir.',
+      fr: 'Organisez des retraites bien-être au Maroc. Yoga, hammam, surf thérapie et expériences zen à Essaouira, Marrakech et Agadir.',
     },
   },
   categories: [
-    'Party & Nightlife',
-    'Adventure & Outdoor',
-    'Wellness & Relaxation',
-    'Food & Drink',
-    'Culture & Sightseeing',
-    'Group Experiences',
+    'Yoga & Meditation',
+    'Spa & Hammam',
+    'Active Wellness',
+    'Healthy Eating',
+    'Nature & Mindfulness',
+    'Creative Therapy',
   ],
   categoryColors: {
-    'Party & Nightlife':     { bg: 'bg-fuchsia-50',  border: 'border-fuchsia-300', text: 'text-fuchsia-700', badge: 'bg-fuchsia-100 text-fuchsia-700', dot: 'bg-fuchsia-400', light: 'bg-fuchsia-50/60' },
-    'Adventure & Outdoor':   { bg: 'bg-orange-50',   border: 'border-orange-300',  text: 'text-orange-700',  badge: 'bg-orange-100 text-orange-700',   dot: 'bg-orange-400',  light: 'bg-orange-50/60' },
-    'Wellness & Relaxation': { bg: 'bg-teal-50',     border: 'border-teal-300',    text: 'text-teal-700',    badge: 'bg-teal-100 text-teal-700',       dot: 'bg-teal-400',    light: 'bg-teal-50/60' },
-    'Food & Drink':          { bg: 'bg-rose-50',     border: 'border-rose-300',    text: 'text-rose-700',    badge: 'bg-rose-100 text-rose-700',       dot: 'bg-rose-400',    light: 'bg-rose-50/60' },
-    'Culture & Sightseeing': { bg: 'bg-amber-50',    border: 'border-amber-300',   text: 'text-amber-700',   badge: 'bg-amber-100 text-amber-700',     dot: 'bg-amber-400',   light: 'bg-amber-50/60' },
-    'Group Experiences':     { bg: 'bg-violet-50',   border: 'border-violet-300',  text: 'text-violet-700',  badge: 'bg-violet-100 text-violet-700',   dot: 'bg-violet-400',  light: 'bg-violet-50/60' },
+    'Yoga & Meditation':    { bg: 'bg-teal-50',    border: 'border-teal-300',    text: 'text-teal-700',    badge: 'bg-teal-100 text-teal-700',       dot: 'bg-teal-400',    light: 'bg-teal-50/60' },
+    'Spa & Hammam':         { bg: 'bg-emerald-50', border: 'border-emerald-300', text: 'text-emerald-700', badge: 'bg-emerald-100 text-emerald-700', dot: 'bg-emerald-400', light: 'bg-emerald-50/60' },
+    'Active Wellness':      { bg: 'bg-cyan-50',    border: 'border-cyan-300',    text: 'text-cyan-700',    badge: 'bg-cyan-100 text-cyan-700',       dot: 'bg-cyan-400',    light: 'bg-cyan-50/60' },
+    'Healthy Eating':       { bg: 'bg-lime-50',    border: 'border-lime-300',    text: 'text-lime-700',    badge: 'bg-lime-100 text-lime-700',       dot: 'bg-lime-400',    light: 'bg-lime-50/60' },
+    'Nature & Mindfulness': { bg: 'bg-green-50',   border: 'border-green-300',   text: 'text-green-700',   badge: 'bg-green-100 text-green-700',     dot: 'bg-green-400',   light: 'bg-green-50/60' },
+    'Creative Therapy':     { bg: 'bg-violet-50',  border: 'border-violet-300',  text: 'text-violet-700',  badge: 'bg-violet-100 text-violet-700',   dot: 'bg-violet-400',  light: 'bg-violet-50/60' },
   },
   defaultCurrency: 'EUR',
   supportedLanguages: ['en', 'fr'],
   defaultLanguage: 'en',
-  minGroupSize: 4,
-  defaultGroupSize: 8,
+  minGroupSize: 1,
+  defaultGroupSize: 2,
 };
 
 /* ── Active niche ── */
 // Change this to switch niches. In the future this could come from
 // an env variable, subdomain detection, or a database lookup.
-export const activeNiche: NicheConfig = bachelorConfig;
+export const activeNiche: NicheConfig = wellnessConfig;
